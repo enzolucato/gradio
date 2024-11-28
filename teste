@@ -1,0 +1,17 @@
+import gradio as gr
+
+# Função simples para testar
+def saudacao(nome):
+    return f"Olá, {nome}! Seja bem-vindo ao Gradio!"
+
+# Interface Gradio
+with gr.Blocks() as app:
+    gr.Markdown("# Testando Gradio no VS Code")
+    nome_input = gr.Textbox(label="Digite seu nome")
+    saudacao_output = gr.Textbox(label="Saudação")
+    botao = gr.Button("Enviar")
+    
+    botao.click(saudacao, inputs=nome_input, outputs=saudacao_output)
+
+# Executar a aplicação
+app.launch(share=True)
